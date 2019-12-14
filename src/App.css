@@ -17,11 +17,11 @@
 
 .list {
     width: 100vmin;
-    height: 83vmax;
+    height: 81vmax;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    border-bottom: 0.1vmax solid grey;
+    margin-bottom: 2vmax;
 }
 
 .product {
@@ -36,8 +36,8 @@
     border-bottom: 0.1vmax solid grey;
 }
 
-.product:last-child {
-    margin-bottom: 2vmax;
+.product:first-child {
+    margin-top: 0;
 }
 
 .qrblock {
@@ -50,13 +50,27 @@
 }
 
 .qrblock input {
-    width: 45vmin;
+    width: 32vmin;
     height: 3.5vmax;
-    margin-right: 10vmin;
+    margin-right: 3vmin;
     border: 0.2vmax solid #ba4c49;
 }
 
+.qrblock button:last-child {
+    width: 15vmin;
+    height: 4vmax;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .qrblock button {
-    width: 40vmin;
-    height: 5.5vmax;
+    width: 50vmin;
+    height: 4vmax;
+}
+
+.refreshbutton {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
 }

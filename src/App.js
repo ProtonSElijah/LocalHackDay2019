@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
+
 import './ResetBrowser.css';
 import './App.css';
+
+import Refresh from './img/refresh.png';
 
 const App = () => {
     const [products, setProducts] = useState(null);
@@ -41,6 +44,15 @@ const App = () => {
           <div className="header">
             <p>Eation</p>
           </div>
+          <div className="qrblock">
+                <input type="text" value={qrData}
+                    placeholder="Вставь QR с чека!"
+                    onChange={(e) =>
+                        setQrData(e.currentTarget.value)}>
+                </input>
+                <button onClick={getProductsList}>Добавить покупки</button>
+                <button><img src={Refresh} alt="refresh" className="refreshbutton"/></button>
+          </div>
           <div className="list">
            <Product name="Лапша" quantity="2" />
            <Product name="Лапша" quantity="2" />
@@ -55,14 +67,6 @@ const App = () => {
            <Product name="Лапша" quantity="2" />
            <Product name="Лапша" quantity="2" />
            <Product name="Лапша" quantity="2" />
-          </div>
-          <div className="qrblock">
-              <input type="text" value={qrData}
-               placeholder="Вставь QR с чека!"
-                onChange={(e) =>
-                    setQrData(e.currentTarget.value)}>
-            </input>
-              <button onClick={getProductsList}>Добавить покупки</button>
           </div>
       </div>
   );
