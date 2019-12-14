@@ -1,0 +1,62 @@
+.app {
+    width: 100vmin;
+    height: 100vmax;
+    background: #f9ec87;
+}
+
+.header {
+    width: 100vmin;
+    height: 8vmax;
+    background: #ba4c49;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: Roboto;
+    font-size: 7vmax;
+}
+
+.list {
+    width: 100vmin;
+    height: 83vmax;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    border-bottom: 0.1vmax solid grey;
+}
+
+.product {
+    width: 95vmin;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin: 0 2.5vmin;
+    margin-top: 5vmax;
+    font-family: Roboto;
+    font-size: 3.5vmax;
+    border-bottom: 0.1vmax solid grey;
+}
+
+.product:last-child {
+    margin-bottom: 2vmax;
+}
+
+.qrblock {
+    margin: 0 2.5vmin;
+    width: 95vmin;
+    height: 9vmax;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.qrblock input {
+    width: 45vmin;
+    height: 3.5vmax;
+    margin-right: 10vmin;
+    border: 0.2vmax solid #ba4c49;
+}
+
+.qrblock button {
+    width: 40vmin;
+    height: 5.5vmax;
+}
