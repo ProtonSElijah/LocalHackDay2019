@@ -6,31 +6,22 @@ import './App.css';
 import Refresh from './img/refresh.png';
 
 const App = () => {
-    const [products, setProducts] = useState(null);
+    const [products, setProducts] = useState([]);
     const [qrData, setQrData] = useState("");
 
     const getProductsList = e => {
-       /* console.log(qrData.slice(qrData.indexOf("fn"), qrData.length));
         let numberFN = qrData.slice(qrData.indexOf("fn") + 3, qrData.indexOf("&i"));
         let numberFD = qrData.slice(qrData.indexOf("i") + 2, qrData.indexOf("&fp"));
         let numberFPD = qrData.slice(qrData.indexOf("fp") + 3, qrData.indexOf("&n"));
-        console.log(numberFN);
-        console.log(numberFD);
-        console.log(numberFPD);
-        fetch(`https://proverkacheka.nalog.ru:9999/v1/inns/*//*kkts*//*/fss/${numberFN}/tickets/${numberFD}?fiscalSign=${numberFPD}&sendToEmail=no`,
+        fetch(`http://192.168.43.76:8080/test?fn=${numberFN}&fd=${numberFD}&fpd=${numberFPD}`,
            {
                 method: "GET",
-                mode: "cors",
-                credentials: "same-origin",
                 headers: {
-                    "Authorization": 'Basic '+btoa(`+79291007693:236739`),
                     'Content-Type': 'application/json',
-                     "device-id": "",
-                    "device-os": ""
                 },
             })
         .then(response => response.json())
-        .then(data => console.log(data));*/
+        .then(data => setProducts(data.document.receipt.items));
 
         e.preventDefault();
     };
@@ -54,19 +45,7 @@ const App = () => {
                 <button><img src={Refresh} alt="refresh" className="refreshbutton"/></button>
           </div>
           <div className="list">
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
-           <Product name="Лапша" quantity="2" />
+              <ProductList products={products} />
           </div>
       </div>
   );
@@ -78,6 +57,13 @@ const Product = ({name, quantity}) => {
             <p>{name}</p>
             <p>{quantity}</p>
         </div>
+    );
+}
+
+const ProductList = ({products}) => {
+    return products.map(
+        product =>
+            <Product name={product.name} quantity={product.quantity} />
     );
 }
 
